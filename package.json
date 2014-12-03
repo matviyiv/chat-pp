@@ -1,9 +1,9 @@
 {
-  "name": "angular-seed",
+  "name": "chat-pp",
   "private": true,
-  "version": "0.0.0",
-  "description": "A starter project for AngularJS",
-  "repository": "https://github.com/angular/angular-seed",
+  "version": "0.0.1",
+  "description": "Ammazing Chat App",
+  "repository": "https://github.com/matviyiv/chat-pp",
   "license": "MIT",
   "devDependencies": {
     "karma": "~0.10",
@@ -16,7 +16,8 @@
   "scripts": {
     "postinstall": "bower install",
     "prestart": "npm install",
-    "start": "http-server -a localhost -p 8000 -c-1",
+    "webstart": "http-server -a localhost -p 8000 -c-1",
+    "start": "node ./server/bin/www",
     "pretest": "npm install",
     "test": "karma start karma.conf.js",
     "test-single-run": "karma start karma.conf.js  --single-run",

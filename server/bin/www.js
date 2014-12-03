@@ -3,7 +3,7 @@ var app = require('./../app'),
     server;
 
 app.set('hostname', process.env.HOSTNAME || 'localhost');
-app.set('port', process.env.PORT || 8080);
+app.set('port', process.env.PORT || 8000);
 
 
 server = app.listen(app.get('port'), app.get('hostname'), function () {

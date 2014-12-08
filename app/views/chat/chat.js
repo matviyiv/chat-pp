@@ -10,5 +10,14 @@ angular.module('chatApp.chat', ['ngRoute'])
 }])
 
 .controller('ChatCtrl', function($scope) {
-  $scope.messages = ['yo', 'hello'];
+  $scope.messages = [];
+  $scope.noHistory = 'This conversation has no history yet!';
+
+  $scope.addMessage = function() {
+    if (!this.newMessage || this.newMessage == '') return;
+
+    $scope.noHistory = '';
+    $scope.messages.push(this.newMessage);
+    this.newMessage = '';
+  }
 });

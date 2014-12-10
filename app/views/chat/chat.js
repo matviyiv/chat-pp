@@ -9,15 +9,18 @@ angular.module('chatApp.chat', ['ngRoute'])
   });
 }])
 
-.controller('ChatCtrl', function($scope) {
+.controller('ChatCtrl', function($scope, chatSocket) {
   $scope.messages = [];
-  $scope.noHistory = 'This conversation has no history yet!';
 
   $scope.addMessage = function() {
     if (!this.newMessage || this.newMessage == '') return;
 
-    $scope.noHistory = '';
-    $scope.messages.push(this.newMessage);
+    chatSocket.emit('message', 'nickName', this.newMessage);
     this.newMessage = '';
   }
+
+  $scope.$on('socket:msgBroadcast', function(event, data) {
+    console.log('socket msg', data);
+    $scope.messages.push(data.msg);
+  });
 });

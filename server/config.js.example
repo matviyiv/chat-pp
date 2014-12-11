@@ -1,0 +1,11 @@
+exports.db = {
+    url: 'mongodb://localhost/name'
+};
+
+exports.session = {
+  secret: 'secret'
+};
+
+exports.cookie = {
+  secret: 'cookie secret'
+};

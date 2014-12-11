@@ -2,13 +2,6 @@
 
 angular.module('chatApp.chat', ['ngRoute'])
 
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/chat', {
-    templateUrl: 'views/chat/chat.html',
-    controller: 'ChatCtrl'
-  });
-}])
-
 .controller('ChatCtrl', function($scope, chatSocket) {
   var userName = 'nickName' + new Date().getTime();
   $scope.messages = [];

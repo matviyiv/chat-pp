@@ -10,17 +10,20 @@ angular.module('chatApp.chat', ['ngRoute'])
 }])
 
 .controller('ChatCtrl', function($scope, chatSocket) {
+  var userName = 'nickName' + new Date().getTime();
   $scope.messages = [];
 
   $scope.addMessage = function() {
-    if (!this.newMessage || this.newMessage == '') return;
+    if (!this.newMessage || this.newMessage === '') return;
 
-    chatSocket.emit('message', 'nickName', this.newMessage);
+    chatSocket.emit('message', userName, this.newMessage);
     this.newMessage = '';
-  }
+  };
 
   $scope.$on('socket:msgBroadcast', function(event, data) {
-    console.log('socket msg', data);
-    $scope.messages.push(data.msg);
+    $scope.messages.push({
+      text: data.msg,
+      position: data.user === userName ? 'left' : 'right'
+    });
   });
 });

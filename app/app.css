@@ -1,1 +1,11 @@
+.bubble-right {
+  background-color: Steelblue;
+}
 
+.bubble-left {
+  background-color: blue;
+}
+
+ul {
+    list-style-type: none;
+}

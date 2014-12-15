@@ -68,16 +68,34 @@ app.post('/user/new', function (req, res) {
   user.save(function (err) {
     if (err) {
       //TODO make error
+      res.end(500);
       return;
     }
 
     req.session.user_id = user.id;
 
-    if(req.isAuthenticated()) {
+    if (req.isAuthenticated()) {
       req.logOut();
     }
     res.end();
   });
+});
+
+app.get('/chat/list', auth, function (req, res) {
+  res.json([
+    {
+      id: 1,
+      name: 'chat_1',
+      description: 'the cool chat',
+      isActive: true
+    },
+    {
+      id: 2,
+      name: 'chat_2',
+      description: 'the cool chat 2',
+      isActive: true
+    }
+  ]);
 });
 
 app.get('/loggedin', function (req, res) {

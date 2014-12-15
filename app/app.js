@@ -2,6 +2,7 @@
 
 angular.module('chatApp', [
   'chatApp.chat',
+  'chatApp.tempchat',
   'chatApp.new',
   'chatApp.login',
   'btford.socket-io'
@@ -49,6 +50,13 @@ angular.module('chatApp', [
       .when('/chat', {
         templateUrl: 'views/chat/chat.html',
         controller: 'ChatCtrl',
+        resolve: {
+          loggedin: checkLoggedin
+        }
+      })
+      .when('/temp-chat', {
+        templateUrl: 'views/temp-chat/chat.html',
+        controller: 'ChatMainTempCtrl',
         resolve: {
           loggedin: checkLoggedin
         }

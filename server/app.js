@@ -94,6 +94,18 @@ app.get('/chat/list', auth, function (req, res) {
       name: 'chat_2',
       description: 'the cool chat 2',
       isActive: true
+    },
+    {
+      id: 3,
+      name: 'chat_3',
+      description: 'the cool chat 3',
+      isActive: true
+    },
+    {
+      id: 4,
+      name: 'chat_4',
+      description: 'the cool chat 4',
+      isActive: true
     }
   ]);
 });

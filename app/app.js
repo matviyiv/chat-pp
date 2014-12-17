@@ -3,7 +3,8 @@
 angular.module('chatApp', [
   'chatApp.chat',
   'chatApp.new',
-  'chatApp.login'
+  'chatApp.login',
+  'btford.socket-io'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
 

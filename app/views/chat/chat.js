@@ -2,8 +2,8 @@
 
 angular.module('chatApp.chat', ['ngRoute'])
 
-.controller('ChatCtrl', function($scope, chatSocket) {
-  var userName = 'nickName' + new Date().getTime();
+.controller('ChatCtrl', function($scope, $rootScope, chatSocket) {
+  var userName = $rootScope.user.name;
   $scope.messages = [];
 
   $scope.addMessage = function() {
@@ -22,7 +22,8 @@ angular.module('chatApp.chat', ['ngRoute'])
     $scope.messages.push({
       text: data.msg,
       position: data.user === userName ? 'left' : 'right',
-      time: data.timestamp
+      time: data.timestamp,
+      user: data.user
     });
   });
 });

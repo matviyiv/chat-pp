@@ -13,6 +13,7 @@ angular.module('chatApp', [
 
       $http.get('/loggedin').success(function (user) {
         if (user !== '0') {
+          $rootScope.user = user;
           $timeout(deferred.resolve, 0);
         }
         else {

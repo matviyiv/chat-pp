@@ -22,7 +22,12 @@ passport.use(new LocalStrategy(
 
     User.findOne({email: username}, function (err, user) {
       if (user && user.authenticate(pass)) {
-        return done(null, {name: "admin"});
+        console.log(JSON.stringify(user));
+        return done(null, {
+          name: user.name,
+          email: user.email,
+          id: user._id
+        });
       } else {
         return done(null, false, {message: 'Incorrect username.'});
       }

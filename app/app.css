@@ -76,3 +76,7 @@ ul {
     margin: 10px 20px;
 }
 
+.new-msg-form {
+    clear: both;
+}
+

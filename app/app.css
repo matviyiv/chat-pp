@@ -1,13 +1,30 @@
 .bubble-right {
-  background-color: Steelblue;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+    color: #31708f;
+    text-align: right;
+    float: right;
 }
 
 .bubble-left {
-  background-color: blue;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #3c763d;
+    text-align: left;
+    float: left;
+}
+
+.bubble {
+    border-radius: 4px;
+    border: 1px solid transparent;
+    margin-bottom: 5px;
+    padding: 5px;
+    width: 90%;
 }
 
 ul {
     list-style-type: none;
+    padding: 0;
 }
 
 .error-messages.ng-active {
@@ -27,3 +44,35 @@ ul {
     border-color:transparent transparent maroon;
     border-width:5px;
 }
+
+.chat-stream .new-msg-form {
+    text-align: right;
+}
+
+.msg-details.left {
+    text-align: left;
+}
+
+.msg-details.right {
+    text-align: right;
+}
+
+.msg-details {
+    clear: both;
+}
+
+.bubble-left .msg-time {
+    float: right;
+    color: Grey;
+}
+
+.bubble-right .msg-time {
+    float: left;
+    color: Grey;
+}
+
+.chat-logout {
+    float: right;
+    margin: 10px 20px;
+}
+

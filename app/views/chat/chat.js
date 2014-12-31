@@ -7,16 +7,22 @@ angular.module('chatApp.chat', ['ngRoute'])
   $scope.messages = [];
 
   $scope.addMessage = function() {
-    if (!this.newMessage || this.newMessage === '') return;
+    var timestamp = '',
+        today = new Date();
 
-    chatSocket.emit('message', userName, this.newMessage);
+    if ($scope.chatForm.$invalid) return false;
+
+    timestamp = today.getHours() + ':' + (today.getMinutes() > 10 ? today.getMinutes() : '0' + today.getMinutes());
+
+    chatSocket.emit('message', userName, this.newMessage, timestamp);
     this.newMessage = '';
   };
 
   $scope.$on('socket:msgBroadcast', function(event, data) {
     $scope.messages.push({
       text: data.msg,
-      position: data.user === userName ? 'left' : 'right'
+      position: data.user === userName ? 'left' : 'right',
+      time: data.timestamp
     });
   });
 });

@@ -1,9 +1,18 @@
-<div class="chat-stream">
+<div class="chat-stream col-md-4" ng-controller="ChatCtrl">
   <ul>
-    <li ng-repeat="msg in messages track by $index "><div class="bubble-{{msg.position}}">{{msg.text}}</div></li>
+    <li ng-repeat="msg in messages track by $index" class="msg-container">
+      <div class="msg-details {{msg.position}}">
+        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+      </div>
+      <div class="bubble bubble-{{msg.position}}" chat-msg-draggable>{{msg.text | codeFormatter}} <span class="msg-time">{{msg.time}}</span></div>
+    </li>
   </ul>
-  <form>
-    <input type="text" ng-model="newMessage" placeholder="Enter msg here ..."/>
-    <input type="submit" ng-click="addMessage()" value="Send"/>
+  <form name="chatForm" novalidate role="form" class="new-msg-form">
+    <div class="input-group">
+      <input class="form-control" type="text" name="newMsg" ng-model="newMessage" placeholder="Enter msg here ..." required/>
+      <span class="input-group-btn">
+        <input class="btn btn-primary" type="submit" ng-click="addMessage()" value="Send" ng-disabled="chatForm.$invalid"/>
+      </span>
+    </div>
   </form>
 </div>

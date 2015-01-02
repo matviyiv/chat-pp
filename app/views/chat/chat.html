@@ -1,4 +1,4 @@
-<div class="chat-stream col-md-4" ng-controller="ChatCtrl">
+<div class="chat-stream col-md-4">
   <ul>
     <li ng-repeat="msg in messages track by $index" class="msg-container">
       <div class="msg-details {{msg.position}}">
@@ -16,4 +16,14 @@
       </span>
     </div>
   </form>
+</div>
+<div class="user-list col-md-4">
+<span ng-show="!userList.length">Loading list of users ...</span>
+<ul class="list-group">
+  <li ng-repeat="user in userList" class="list-group-item">
+    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+    {{user.name}}
+    <span class="badge">Online</span>
+  </li>
+</ul>
 </div>

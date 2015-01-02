@@ -11,7 +11,7 @@ angular.module('chatApp', [
     var checkLoggedin = function ($q, $timeout, $http, $location, $rootScope) {
       var deferred = $q.defer();
 
-      $http.get('/loggedin').success(function (user) {
+      $http.get('/auth/loggedin').success(function (user) {
         if (user !== '0') {
           $rootScope.user = user;
           $timeout(deferred.resolve, 0);
@@ -72,7 +72,7 @@ angular.module('chatApp', [
 
     $rootScope.logout = function () {
       $rootScope.message = 'Logged out.';
-      $http.post('/logout');
+      $http.post('/auth/logout');
     };
   })
 

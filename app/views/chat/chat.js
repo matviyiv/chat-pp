@@ -1,10 +1,14 @@
 'use strict';
 
-angular.module('chatApp.chat', ['ngRoute'])
+angular.module('chatApp.chat', ['ngRoute', 'Users'])
 
-.controller('ChatCtrl', function($scope, $rootScope, chatSocket) {
+.controller('ChatCtrl', function ($scope, $rootScope, chatSocket, listUsers) {
   var userName = $rootScope.user.name;
   $scope.messages = [];
+
+  listUsers.get(function (data) {
+    $scope.userList = data;
+  });
 
   $scope.addMessage = function() {
     var timestamp = '',

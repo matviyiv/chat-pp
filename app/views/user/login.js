@@ -5,7 +5,7 @@ angular.module('chatApp.login', ['ngRoute', 'ngMessages'])
     $scope.credentials = {};
 
     $scope.login = function () {
-      $http.post('/login', {
+      $http.post('/auth/login', {
         username: $scope.credentials.username,
         password: $scope.credentials.password
       })

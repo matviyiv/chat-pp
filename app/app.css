@@ -80,3 +80,17 @@ ul {
     clear: both;
 }
 
+.user-list .badge {
+    background-color: #73c167;
+}
+
+.user-list .glyphicon{
+    margin-right: 10px;
+}
+
+.user-list li:hover {
+    background-color: #337ab7;
+    border-color: #337ab7;
+    color: #fff;
+    cursor: pointer;
+}

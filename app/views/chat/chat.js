@@ -7,7 +7,7 @@ angular.module('chatApp.chat', ['ngRoute', 'Users'])
   $scope.messages = [];
 
   listUsers.get(function (data) {
-    $scope.userList = data;
+    $scope.userList = data.filter(function(user) {return user.name !== userName;});
   });
 
   $scope.addMessage = function() {
